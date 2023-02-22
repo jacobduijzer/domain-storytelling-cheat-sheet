@@ -1,0 +1,266 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+%\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+%\usepackage{amsmath}            % Symbols
+%\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+\usepackage[english]{babel}              % Languages
+
+% Document Info
+\author{jacobd79}
+\pdfinfo{
+  /Title (domain-storytelling.pdf)
+  /Creator (Cheatography)
+  /Author (Jacob Duijzer <jacob@duijzer.com>)
+  /Subject (Domain Storytelling Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{60pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{FF8E0D}
+\definecolor{LightBackground}{HTML}{FFF7EF}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Domain Storytelling Cheat Sheet}}}} 
+    \normalsize{by \textcolor{DarkBackground}{Jacob Duijzer} }
+\end{tabulary}
+\end{multicols}}
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{2}
+
+\begin{tabularx}{8.4cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{8.4cm}}{\bf\textcolor{white}{Domain Storytelling}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{8.4cm}}{A domain story visualize {\bf{who}} (actor) {\bf{does what}} (activity) {\bf{with what}} (work objects) {\bf{with whom}} (other actors).} \tn 
+% Row Count 3 (+ 3)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{8.4cm}}{The {\bf{actors}} are the {\bf{subjects}} of the sentences, they appear {\bf{once per domain story}}.} \tn 
+% Row Count 5 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{8.4cm}}{Avoid making implicit assumptions or drawing premature conclusions.} \tn 
+% Row Count 7 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{8.4cm}}{\bf\textcolor{white}{Tips}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{8.4cm}}{Invite real experts—people from the trenches—and not proxies who know the domain from hearsay.} \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{8.4cm}}{When the story seems to be finished, tell the story from the beginning and try to get agreement: Did we miss something? Is something obviously wrong? Do all domain experts agree with the story?} \tn 
+% Row Count 6 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{2.32 cm} x{5.68 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{The Pictographic Language}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+{\bf{Actors}} & Domain stories are told from an actor's perspective. It can be a person, a group of people, or a software system. Usually {\bf{labeled with}} their {\bf{role or function}}. \tn 
+% Row Count 6 (+ 6)
+% Row 1
+\SetRowColor{white}
+{\bf{Work Objects}} & Actors create, work with, and exchange work objects (documents, physical things and digital objects). They also exchange information about work objects. {\bf{Labeled wih a term from the domain language}}. \tn 
+% Row Count 14 (+ 8)
+% Row 2
+\SetRowColor{LightBackground}
+{\bf{Activities}} & Activities are shown as arrows and {\bf{labeled with verbs from the domain language}}. \tn 
+% Row Count 17 (+ 3)
+% Row 3
+\SetRowColor{white}
+Sequence Numbers & A story has multiple sentences, told one after the other. Keep the order by adding a sequence number. \tn 
+% Row Count 21 (+ 4)
+% Row 4
+\SetRowColor{LightBackground}
+\seqsplit{Annotations} & The pictographic sentences are complemented by textual annotations. Annotate infomation about variations, or the goal of an activity. Explain terms from the domain language. \tn 
+% Row Count 28 (+ 7)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{4.88 cm} x{3.12 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{A Typical Journey}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+COARSE-GRAINED \\ PURE \\ AS-IS & Explore a New Domain \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+FINE-GRAINED \\ PURE \\ & Drill Down into Subdomains \tn 
+% Row Count 4 (+ 2)
+% Row 2
+\SetRowColor{LightBackground}
+FINE-GRAINED \\ DIGITALIZED \\ TO-BE & Introduce New Software \tn 
+% Row Count 6 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{4.56 cm} x{3.44 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Story Size (rule of thumb)}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+Flip chart & 10 sentences \tn 
+% Row Count 1 (+ 1)
+% Row 1
+\SetRowColor{white}
+Large whiteboard & 15 sentences \tn 
+% Row Count 2 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+Digital tools & 20 sentences \tn 
+% Row Count 3 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{8.4cm}}{\bf\textcolor{white}{Granularity}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{8.4cm}}{Describes the level of detail, which can vary from story to story. Aim for a consistence level of detail. Mixing might be confusing and indicative of a larger problem.} \tn 
+% Row Count 4 (+ 4)
+% Row 1
+\SetRowColor{white}
+\mymulticolumn{1}{x{8.4cm}}{COARSE-GRAINED} \tn 
+% Row Count 5 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{8.4cm}}{FINE-GRAINED} \tn 
+% Row Count 6 (+ 1)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{2.32 cm} x{5.68 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Point in Time}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+As-Is & The current situation, often called the {\emph{problem space}}, the intent of modeling is to improve somthing bad or solve a problem. \tn 
+% Row Count 5 (+ 5)
+% Row 1
+\SetRowColor{white}
+To-Be & Possible improved situations can also be explored with domain stories, decribe the {\emph{solution space}}. \tn 
+% Row Count 9 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{2.8 cm} x{5.2 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Domain Purity}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+PURE & Domain stories without software systems, helpful for building new software systems. Understanding of the domain without the complexity of existing software. Talk about how things would be done if all activities were motivated only by the domain. \tn 
+% Row Count 10 (+ 10)
+% Row 1
+\SetRowColor{white}
+DIGITALIZED & When the domain model is hidden within (badly modelled) software systems. Can be used to visualize and talk about the mess. \tn 
+% Row Count 15 (+ 5)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{8.4cm}{x{3.68 cm} x{4.32 cm} }
+\SetRowColor{DarkBackground}
+\mymulticolumn{2}{x{8.4cm}}{\bf\textcolor{white}{Workshop Duration}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+COARSE- or \\ FINE-GRAINED AS-IS & 30-45 minutes \tn 
+% Row Count 2 (+ 2)
+% Row 1
+\SetRowColor{white}
+TO-BE & longer \tn 
+% Row Count 3 (+ 1)
+% Row 2
+\SetRowColor{LightBackground}
+Recommended & 60-90 minutes or 2-3 domain stories \tn 
+% Row Count 5 (+ 2)
+% Row 3
+\SetRowColor{white}
+Remote & Set a timer for a short modeling session (around 45 minutes) followed by a break. \tn 
+% Row Count 9 (+ 4)
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}
